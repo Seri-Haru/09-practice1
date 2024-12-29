@@ -49,7 +49,7 @@ function WeatherPage() {
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
-    // ローカルストレージから検索履歴を取得
+    // ローカルストレージからもらう
     const savedHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
     setHistory(savedHistory);
   }, []);
@@ -81,7 +81,7 @@ function WeatherPage() {
     } finally {
       setLoading(false);
       // 検索履歴を保存
-      const updatedHistory = [...new Set([city, ...history])];  // 重複を排除
+      const updatedHistory = [...new Set([city, ...history])];  
       setHistory(updatedHistory);
       localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
     }
@@ -178,11 +178,11 @@ function WeatherPage() {
 
 function SunnyCitiesPage() {
   const [cities, setCities] = useState([]);
-  const [forecastData, setForecastData] = useState({}); // 都市ごとの天気予報データを保存する
+  const [forecastData, setForecastData] = useState({}); // 都市ごとの天気予報データ(修正済み)
 
   const API_KEY = "e430ed5512a9f874f92a367c54670265";
 
-  // ランダムに都市を選択
+  // 都市を選択
   const getSunnyCities = () => {
     const sunnyCities = ["Tokyo", "Los Angeles", "New York", "Dubai", "Sydney"];
     const randomCities = [];
@@ -202,7 +202,6 @@ function SunnyCitiesPage() {
       const data = await response.json();
       const dailyData = data.list.filter((entry) => entry.dt_txt.includes("12:00:00"));
 
-      // 既存のデータに新しいデータを追加
       setForecastData((prevData) => ({
         ...prevData,
         [city]: dailyData,
