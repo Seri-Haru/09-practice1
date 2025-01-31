@@ -67,7 +67,7 @@ function SunnyCitiesPage() {
                   <Typography>天気: {day.weather[0].description}</Typography>
                   <Typography>気温: {day.main.temp}°C</Typography>
                 </Card>
-              ))}
+              ))} 
             </Box>
           </Box>
         ))}
