@@ -1,13 +1,13 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #e0f7fa; /* 明るい水色 */
+  background-color: #e0f7fa; 
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  overflow-y: auto; /* スクロールを有効にする */
+  overflow-y: auto; 
 }
 
 .weather-app {
@@ -24,7 +24,7 @@ body {
 
 header h1 {
   font-size: 36px;
-  color: #0288d1; /* 明るい青 */
+  color: #56bef7; /* 明るい青 */
   margin-bottom: 30px;
   font-weight: 600;
   text-transform: uppercase;
@@ -161,3 +161,16 @@ footer {
     transform: scale(1);
   }
 }
+
+.card {
+  border: 2px solid #00acc1; /* カードの枠線 */
+  border-radius: 10px;       /* カードの角を丸める */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 影を追加 */
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05); /* ホバー時に拡大 */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* ホバー時の影を強調 */
+}
+
